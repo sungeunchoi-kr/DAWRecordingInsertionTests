@@ -1,0 +1,128 @@
+{
+  "name": "daw-recording-insertion-test-level0",
+  "version": "1.0.0",
+  "private": true,
+  "main": "public/electron.js",
+  "homepage": "./",
+  "scripts": {
+    "server": "cross-env PORT=8080 BROWSER=none react-scripts start",
+    "build": "./build.sh",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "dev": "electron .",
+    "pack": "electron-builder -c.extraMetadata.main=build/electron.js"
+  },
+  "build": {
+    "productName": "Muse",
+    "appId": "com.introspect.muse-app",
+    "protocols": {
+      "name": "museapp",
+      "schemes": [
+        "museapp"
+      ]
+    },
+    "extraFiles": [
+      {
+        "from": "resources/win32/bin",
+        "to": "resources/win32/bin",
+        "filter": [
+          "**/*"
+        ]
+      },
+      {
+        "from": "resources/images",
+        "to": "resources/images",
+        "filter": [
+          "**/*"
+        ]
+      }
+    ],
+    "mac": {
+      "category": "public.app-category.productivity",
+      "hardenedRuntime": true
+    },
+    "directories": {
+      "buildResources": "assets"
+    },
+    "files": [
+      "build/**/*",
+      "node_modules/**/*",
+      "package.json"
+    ],
+    "asarUnpack": [
+      "**/node_modules/ffmpeg-static/*"
+    ]
+  },
+  "dependencies": {
+    "@iconify/icons-ic": "^1.1.2",
+    "@iconify/react": "^1.1.3",
+    "@material-ui/core": "^4.9.11",
+    "@material-ui/icons": "^5.0.0-alpha.36",
+    "@material-ui/lab": "^4.0.0-alpha.57",
+    "app-root-dir": "^1.0.2",
+    "bootstrap": "^4.4.1",
+    "clone": "^1.0.4",
+    "clsx": "^1.1.1",
+    "cross-env": "^7.0.2",
+    "css-loader": "^3.5.2",
+    "electron-dl": "^3.0.2",
+    "electron-is-dev": "^1.2.0",
+    "electron-json-storage": "^4.3.0",
+    "electron-log": "^4.2.4",
+    "electron-root-path": "^1.0.16",
+    "electron-util": "^0.14.2",
+    "ffmpeg-static": "^4.3.0",
+    "html-webpack-plugin": "^4.2.0",
+    "midi": "^1.0.0",
+    "moment": "^2.27.0",
+    "moment-duration-format": "^2.3.2",
+    "naudiodon": "^2.3.5",
+    "node-sass": "^4.13.1",
+    "pretty-bytes": "^5.4.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "^3.4.3",
+    "sass-loader": "^8.0.2",
+    "semver": "^6.3.0",
+    "serialize-error": "^7.0.1",
+    "style-loader": "^1.1.4",
+    "typescript": "^3.9.7"
+  },
+  "devDependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/clone": "^2.1.0",
+    "@types/dom-mediacapture-record": "^1.0.7",
+    "@types/jest": "^25.2.1",
+    "@types/react": "^16.9.34",
+    "@types/react-dom": "^16.9.6",
+    "@types/react-resize-detector": "^5.0.0",
+    "@types/react-router-dom": "^5.1.4",
+    "@types/sanitize-html": "^1.27.0",
+    "@types/sdp-transform": "^2.4.4",
+    "@types/semver": "^7.3.6",
+    "@types/simple-peer": "^9.6.0",
+    "@types/uuid": "^7.0.2",
+    "@types/webrtc": "0.0.26",
+    "@types/websocket": "^1.0.0",
+    "electron": "^12.0.6",
+    "electron-builder": "^22.8.1",
+    "electron-rebuild": "^2.3.5",
+    "ts-loader": "^7.0.0"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

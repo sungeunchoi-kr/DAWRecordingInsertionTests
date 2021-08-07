@@ -1,0 +1,1 @@
+node node_modules\cross-env\src\bin\cross-env.js ELECTRON_IS_DEV=0 electron .
